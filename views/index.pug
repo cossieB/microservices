@@ -1,6 +1,7 @@
 doctype html
 html(lang="en")
     head
+        link(rel="icon", href="/cool.png" type="image/png")
         link(rel="stylesheet", href="/index.css", type="text/css")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -9,6 +10,8 @@ html(lang="en")
 
     body 
         h1 Microservices
+        div By 
+            a(href="https://cossie-91.web.app/") Cossie
         hr
         section 
             h2 Who Am I?
@@ -41,6 +44,12 @@ html(lang="en")
             p GET 
                 a(href="/api/url/1") /api/url/[:id] 
             p If short URL matches you will be redirected to the original URL. Otherwise error response will be given.
+            hr
+        
+
+
+        footer  &copy;  
+            a(href="https://cossie-91.web.app/") Cossie
 
 
         

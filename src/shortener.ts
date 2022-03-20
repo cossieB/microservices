@@ -28,7 +28,7 @@ shortenerRouter.post('/', async (req, res) => {
         return res.json({error: "Invalid URL"})
     }
     const allUrls = await URLModel.find();
-    let short = `/api/url/${allUrls.length + 1}`
+    let short = `/api/url/${allUrls.length}`
     let url = new URLModel({original, short })
     await url.save()
 
