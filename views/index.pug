@@ -22,10 +22,26 @@ html(lang="en")
             h2 Timestamp
             h3 Usage
             p GET 
-                a(href="/api/timestamp") /api/timestamp/[date]?
+                a(href="/api/timestamp") /api/timestamp/[:date?]
             p Sample Response:
             p #{timestamp}
             hr
+        section 
+            h2 URL Shortener
+            h3 Usage
+            form(action="/api/url", method="POST")
+                input(type="text", name="original", id="original", placeholder="Enter URL")
+                button(type="Submit") Submit
+            p 
+                strong or
+            p POST {original: [URL]} to 
+                a(href="/api/url") /api/url
+            p Sample Response: 
+            p {"original":"https://www.google.com/","short":"/api/url/1"}
+            p GET 
+                a(href="/api/url/1") /api/url/[:id] 
+            p If short URL matches you will be redirected to the original URL. Otherwise error response will be given.
+
 
         
         
