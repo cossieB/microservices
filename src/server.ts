@@ -7,16 +7,20 @@ import { timestampRouter } from "./timestamp";
 dotenv.config()
 const app = express()
 
+// Express Middleware
 app.use(cors())
 app.use(express.urlencoded({extended: true}))
-app.use(express.static('public'))
+app.use(express.static(process.cwd() + '/public'))
 
+// Home Page
 app.get('/', (req, res) => {
-    res.sendFile("/views/index.html")
+    res.sendFile(process.cwd() + "/views/index.html")
 })
 
-app.use('/whoami', whoAmIRouter)
-app.use('/timestamp', timestampRouter)
+
+// API Routes
+app.use('/api/whoami', whoAmIRouter)
+app.use('/api/timestamp', timestampRouter)
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,0 +1,13 @@
+body {
+    background-color: #222;
+    color: #ddd;
+    font-family: monospace;
+}
+
+body * {
+    text-align: center;
+}
+
+a {
+    color: #ddd
+}
