@@ -8,15 +8,17 @@ dotenv.config()
 const app = express()
 
 // Express Middleware
+app.set("view engine", "pug")
 app.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(process.cwd() + '/public'))
 
 // Home Page
 app.get('/', (req, res) => {
-    res.sendFile(process.cwd() + "/views/index.html")
+    const whoami = JSON.stringify({"ipaddress": req.ip, "language": req.headers["accept-language"], "software": req.headers["user-agent"]})
+    const timestamp = JSON.stringify({unix: new Date().getTime(), utc: new Date().toUTCString()})
+    res.render('./index.pug', {whoami, timestamp})
 })
-
 
 // API Routes
 app.use('/api/whoami', whoAmIRouter)
