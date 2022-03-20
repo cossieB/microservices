@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from 'dotenv';
 import { whoAmIRouter } from "./whoami";
 import { timestampRouter } from "./timestamp";
+import { shortenerRouter } from "./shortener";
 
 dotenv.config()
 const app = express()
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 // API Routes
 app.use('/api/whoami', whoAmIRouter)
 app.use('/api/timestamp', timestampRouter)
+app.use('/api/url', shortenerRouter)
 
 const PORT = process.env.PORT || 5000;
 
