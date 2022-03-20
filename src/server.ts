@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { whoAmIRouter } from "./whoami";
 import { timestampRouter } from "./timestamp";
 import { shortenerRouter } from "./shortener";
+import path from "path";
 
 dotenv.config()
 const app = express()
@@ -12,7 +13,7 @@ const app = express()
 app.set("view engine", "pug")
 app.use(cors())
 app.use(express.urlencoded({extended: true}))
-app.use(express.static(process.cwd() + '/public'))
+app.use(express.static(path.resolve(__dirname, '../public')))
 
 // Home Page
 app.get('/', (req, res) => {
