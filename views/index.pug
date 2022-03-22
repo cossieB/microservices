@@ -45,7 +45,25 @@ html(lang="en")
                 a(href="/api/url/1") /api/url/[:id] 
             p If short URL matches you will be redirected to the original URL. Otherwise error response will be given.
             hr
-        
+        section 
+            h2 File Metadata
+            h3 Usage
+            form(action="/api/metadata", method="POST", enctype="multipart/form-data")
+                input(type="file", name="file")
+                br
+                button(type="submit") Submit
+            p Sample Response:
+            p {"originalname":"server.ts","encoding":"7bit","mimetype":"text/plain","size":1172}
+            hr
+        section 
+            h2 Quotes As A Service
+            h3 Usage 
+            p GET 
+                a(href="/api/quotes") /api/quotes/?limit=[number]
+            p Sample Response: 
+            p #{quotes}
+            hr
+            
 
 
         footer  &copy;  

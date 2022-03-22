@@ -5,6 +5,9 @@ import { whoAmIRouter } from "./whoami";
 import { timestampRouter } from "./timestamp";
 import { shortenerRouter } from "./shortener";
 import path from "path";
+import { metadataRouter } from "./metadata";
+import timezoneHelper from "./timezoneHelper";
+import { quotesRouter, slicedQuotes } from "./quotes";
 
 dotenv.config()
 const app = express()
@@ -16,16 +19,19 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.resolve(__dirname, '../public')))
 
 // Home Page
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     const whoami = JSON.stringify({"ipaddress": req.ip, "language": req.headers["accept-language"], "software": req.headers["user-agent"]})
-    const timestamp = JSON.stringify({unix: new Date().getTime(), utc: new Date().toUTCString()})
-    res.render('./index.pug', {whoami, timestamp})
+    const timestamp = JSON.stringify(timezoneHelper())
+    const quotes = JSON.stringify({quotes: slicedQuotes()})
+    res.render('./index.pug', {whoami, timestamp, quotes})
 })
 
 // API Routes
 app.use('/api/whoami', whoAmIRouter)
 app.use('/api/timestamp', timestampRouter)
 app.use('/api/url', shortenerRouter)
+app.use('/api/metadata', metadataRouter)
+app.use('/api/quotes', quotesRouter)
 
 const PORT = process.env.PORT || 5000;
 
