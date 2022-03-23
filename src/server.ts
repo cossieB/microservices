@@ -8,6 +8,7 @@ import path from "path";
 import { metadataRouter } from "./metadata";
 import timezoneHelper from "./timezoneHelper";
 import { quotesRouter, slicedQuotes } from "./quotes";
+import {emailRouter} from './emailer'
 
 dotenv.config()
 const app = express()
@@ -32,6 +33,7 @@ app.use('/api/timestamp', timestampRouter)
 app.use('/api/url', shortenerRouter)
 app.use('/api/metadata', metadataRouter)
 app.use('/api/quotes', quotesRouter)
+app.use('/api/email', emailRouter)
 
 const PORT = process.env.PORT || 5000;
 
