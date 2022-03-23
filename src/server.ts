@@ -16,7 +16,8 @@ const app = express()
 // Express Middleware
 app.set("view engine", "pug")
 app.use(cors())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
+app.use(express.json())
 app.use(express.static(path.resolve(__dirname, '../public')))
 
 // Home Page

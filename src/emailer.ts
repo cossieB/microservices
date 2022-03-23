@@ -18,7 +18,7 @@ emailRouter.post('/', async (req, res) => {
     from: 'Cossie Bot <postmaster@sandboxab001f3c9ee145d6a145546df2d5338f.mailgun.org>',
     to: process.env.EMAIL,
     subject: `${name} - ${company}`,
-    html: `<div style="text-align: center"><h1>${company}</h1><h2>${name}</h2><h2>{${email}</h2><p>${msg}</p></div>`
+    html: `<div style="text-align: center"><h1>${company}</h1><h2>${name}</h2><h2>${email}</h2><p>${msg}</p></div>`
   };
   try {
     await mg.messages.create(DOMAIN, data);
