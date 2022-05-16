@@ -1,14 +1,14 @@
 import cors from "cors";
 import express from "express";
 import dotenv from 'dotenv';
-import { whoAmIRouter } from "./whoami";
-import { timestampRouter } from "./timestamp";
-import { shortenerRouter } from "./shortener";
+import { whoAmIRouter } from "./routes/whoami";
+import { timestampRouter } from "./routes/timestamp";
+import { shortenerRouter } from "./routes/shortener";
 import path from "path";
-import { metadataRouter } from "./metadata";
-import timezoneHelper from "./timezoneHelper";
-import { quotesRouter, slicedQuotes } from "./quotes";
-import {emailRouter} from './emailer'
+import { metadataRouter } from "./routes/metadata";
+import timezoneHelper from "./utils/timezoneHelper";
+import { quotesRouter, slicedQuotes } from "./routes/quotes";
+import {emailRouter} from './routes/emailer'
 
 dotenv.config()
 const app = express()

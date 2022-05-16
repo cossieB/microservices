@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDB from './connectDB';
-import { URLModel } from './urlSchema';
+import { URLModel } from './Models/urlSchema';
 import url from 'url';
 import dns from 'dns';
 import whatwg from 'whatwg-url'

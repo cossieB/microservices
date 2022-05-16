@@ -1,6 +1,6 @@
 import express from 'express';
-import { quotes } from './quoteslist';
-import shuffleArray from './shuffleArray';
+import { quotes } from '../utils/quoteslist';
+import shuffleArray from '../utils/shuffleArray';
 
 export const quotesRouter = express.Router()
 
