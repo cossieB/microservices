@@ -9,6 +9,8 @@ import { metadataRouter } from "./routes/metadata";
 import timezoneHelper from "./utils/timezoneHelper";
 import { quotesRouter, slicedQuotes } from "./routes/quotes";
 import {emailRouter} from './routes/emailer'
+import { exerciseRouter } from "./routes/exercise";
+import mongoose from "mongoose";
 
 dotenv.config()
 const app = express()
@@ -35,9 +37,18 @@ app.use('/api/url', shortenerRouter)
 app.use('/api/metadata', metadataRouter)
 app.use('/api/quotes', quotesRouter)
 app.use('/api/email', emailRouter)
+app.use('/api/exercisetracker', exerciseRouter)
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log("server is listening on port " + PORT)
-})
+(async function() {
+    try {
+        await mongoose.connect(process.env.MONGO_URI!)
+        app.listen(PORT, () => {
+            console.log("server is listening on port " + PORT)
+        })
+    }
+    catch(e: any) {
+        console.log(e)
+    }
+})()

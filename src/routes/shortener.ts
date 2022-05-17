@@ -1,7 +1,5 @@
 import express from 'express';
-import connectDB from './connectDB';
-import { URLModel } from './Models/urlSchema';
-import url from 'url';
+import { URLModel } from '../models/urlSchema';
 import dns from 'dns';
 import whatwg from 'whatwg-url'
 
@@ -10,7 +8,6 @@ export const shortenerRouter = express.Router()
 
 shortenerRouter.post('/', async (req, res) => {
     const {original} = req.body;
-    await connectDB()
     let doc = await URLModel.findOne({original})
     
     if (doc) {
@@ -37,7 +34,6 @@ shortenerRouter.post('/', async (req, res) => {
 
 shortenerRouter.get('/:num', async (req, res) => {
     const {num} = req.params;
-    await connectDB()
     let doc = await URLModel.findOne({short: '/api/url/'+num});
     
     if (doc) {

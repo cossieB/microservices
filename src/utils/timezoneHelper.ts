@@ -1,4 +1,4 @@
-import { timezones } from "./timestamp";
+import { timezones } from "../routes/timestamp";
 
 export default function() {
     let obj: {[key:string]: string} = {}
