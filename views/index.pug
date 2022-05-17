@@ -99,7 +99,18 @@ html(lang="en")
             p Sample Response: 
             p {_id: "6282a7b071c1f6f026cba926",count: 1,username: "Test", log: [{description: "Run", duration: 15, date: "Mon May 16 2022" }]}
             hr
-            
+        section 
+            h2 Metric / Imperial Converter
+            h3 Usage 
+            form#convertForm(action="/api/converter", method="get") 
+                input(type="text", placeholder="1000mi", name="input")
+                button(type="submit") Submit
+            p GET 
+                a(href="/api/quotes") /api/converter/?input=[input]
+            p Supported units: km, mi, L, gal, kg, lbs
+            p Sample Response: 
+            p {initNum:  4.5,initUnit: "mi", returnNum: 7.24203, returnUnit: "km", string: "4.5 miles converts to 7.24203 kilometers"}
+            hr
 
 
         footer  &copy;  
