@@ -11,6 +11,7 @@ import { quotesRouter, slicedQuotes } from "./routes/quotes";
 import {emailRouter} from './routes/emailer'
 import { exerciseRouter } from "./routes/exercise";
 import mongoose from "mongoose";
+import { converterRouter } from "./routes/converter";
 
 dotenv.config()
 const app = express()
@@ -38,6 +39,7 @@ app.use('/api/metadata', metadataRouter)
 app.use('/api/quotes', quotesRouter)
 app.use('/api/email', emailRouter)
 app.use('/api/exercisetracker', exerciseRouter)
+app.use('/api/converter', converterRouter)
 
 const PORT = process.env.PORT || 5000;
 
