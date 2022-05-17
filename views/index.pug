@@ -68,7 +68,7 @@ html(lang="en")
             h3 Usage 
             #exercises
                 .formdiv
-                    form(action="/api/exercisetracker", method="POST")
+                    form.formColumn(action="/api/exercisetracker", method="POST")
                         h4 Create New User
                         input(type="text", name="username", placeholder="username", id="username")
                         button(type="submit") Submit
@@ -80,7 +80,7 @@ html(lang="en")
                     p Sample Response: 
                     p {"username":"Test","_id":"62828d38e5ede7b486be86d2"}
                 .formdiv
-                    form#exerciseForm(method="POST")
+                    form#exerciseForm.formColumn(method="POST")
                         h4 Add Exercises
                         input#exId(type="text", name="_id", placeholder="_id", required)
                         input(type="text", name="description", placeholder="description", required)
@@ -111,6 +111,24 @@ html(lang="en")
             p Sample Response: 
             p {initNum:  4.5,initUnit: "mi", returnNum: 7.24203, returnUnit: "km", string: "4.5 miles converts to 7.24203 kilometers"}
             hr
+        section#translateSection
+            h2 Britsh / American translator
+            h3 Usage
+            #translateDiv
+                form.formColumn#translateForm
+                    textarea#text(cols="30", rows="10", placeholder="lorry bank holiday 1.15", name="text", required) 
+                    select#locale(name="locale") 
+                        option(value="british-to-american") British To American
+                        option(value="american-to-british") American To British
+                    button(type="submit") Submit
+                #translateResult
+            p   
+                strong Or
+            p POST {text: [text to be translated], locale: [american-to-british or british-to-american]} to 
+                a(href="/api/translate") /api/translate 
+            p Sample Response
+            p {"text":"lorry bank holiday 1.15","translation":"<span class=\"highlight\">truck</span> <span class=\"highlight\">public holiday</span> <span class=\"highlight\">1:15</span>"}
+        hr
 
 
         footer  &copy;  
