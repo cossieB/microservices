@@ -13,6 +13,7 @@ import { exerciseRouter } from "./routes/exercise";
 import mongoose from "mongoose";
 import { converterRouter } from "./routes/converter";
 import { translatorRouter } from "./routes/translator";
+import { issueRouter } from "./routes/issues";
 
 dotenv.config()
 const app = express()
@@ -42,6 +43,7 @@ app.use('/api/email', emailRouter)
 app.use('/api/exercisetracker', exerciseRouter)
 app.use('/api/converter', converterRouter)
 app.use('/api/translate', translatorRouter)
+app.use('/api/issues', issueRouter)
 
 const PORT = process.env.PORT || 5000;
 
