@@ -44,7 +44,7 @@ html(lang="en")
                 | {original: [URL]} to 
                 a(href="/api/url") /api/url
             p Sample Response: 
-            p {"original":"https://www.google.com/","short":"/api/url/1"}
+            p {"original": "https://www.google.com/", "short": "/api/url/1"}
             p 
                 strong GET 
                 a(href="/api/url/1") /api/url/[:id] 
@@ -99,12 +99,12 @@ html(lang="en")
                     p
                         strong POST
                     p {description: [description], duration: [duration], date: [date]} to 
-                        a(href="/api/exercisetracker/[_id)]/logs") /api/exercisetracker/[_id)]/logs
+                        a(href="/api/exercisetracker/6282a7b071c1f6f026cba926/logs") /api/exercisetracker/[_id]/logs
                     p Sample Response: 
                     p {_id: "6282a7b071c1f6f026cba926", username: "Test", date: "Mon May 16 2022", description: "Run"}
             p 
                 strong GET  
-                a(href="/api/exercisetracker/[_id]/logs") /api/exercisetracker/[_id)]/logs?to=[date]&from=[date]&limit=[number]
+                a(href="/api/exercisetracker/6282a7b071c1f6f026cba926/logs") /api/exercisetracker/[_id]/logs?to=[date]&from=[date]&limit=[number]
             p Sample Response: 
             p {_id: "6282a7b071c1f6f026cba926",count: 1,username: "Test", log: [{description: "Run", duration: 15, date: "Mon May 16 2022" }]}
             hr
