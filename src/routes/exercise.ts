@@ -43,7 +43,7 @@ exerciseRouter.post('/:id/logs', async (req, res) => {
     let newDate = new Date(dateTemp)
 
     try {
-        let user = await Users.findById(_id);
+        let user = await Users.findById(_id).catch(() => null);
         if (!user) return res.send('User not found')
         let obj = {description, duration, date: newDate}
         user.log.push(obj)
@@ -82,7 +82,7 @@ exerciseRouter.get('/:id/logs', async (req, res) => {
                         date: item.date.toDateString()
                     }))
 
-    let count = log.length
+    let count = log2.length
 
     return res.json({_id, count, username, log: log2})
 
