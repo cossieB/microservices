@@ -23,7 +23,7 @@ issueRouter
         }
     })
     .post(async (req, res) => {
-        try {console.log(req.body)
+        try {
             let project = req.params.project;
             const { issue_title, issue_text, created_by } = req.body;
             const assigned_to = req.body.assigned_to || ""

@@ -104,7 +104,7 @@ html(lang="en")
                     p {_id: "6282a7b071c1f6f026cba926", username: "Test", date: "Mon May 16 2022", description: "Run"}
             p 
                 strong GET  
-                a(href="/api/exercisetracker/[_id)]/logs") /api/exercisetracker/[_id)]/logs?to=[date]&from=[date]&limit=[number]
+                a(href="/api/exercisetracker/[_id]/logs") /api/exercisetracker/[_id)]/logs?to=[date]&from=[date]&limit=[number]
             p Sample Response: 
             p {_id: "6282a7b071c1f6f026cba926",count: 1,username: "Test", log: [{description: "Run", duration: 15, date: "Mon May 16 2022" }]}
             hr
@@ -116,7 +116,7 @@ html(lang="en")
                 button(type="submit") Submit
             p 
                 strong GET 
-                a(href="/api/quotes") /api/converter/?input=[input]
+                a(href="/api/converter?input=1000mi") /api/converter?input=[input]
             p Supported units: km, mi, L, gal, kg, lbs
             p Sample Response: 
             p {initNum:  4.5,initUnit: "mi", returnNum: 7.24203, returnUnit: "km", string: "4.5 miles converts to 7.24203 kilometers"}
@@ -135,7 +135,8 @@ html(lang="en")
             p   
                 strong Or
             p
-                strong POST {text: [text to be translated], locale: [american-to-british or british-to-american]} to 
+                strong POST 
+                | {text: [text to be translated], locale: [american-to-british or british-to-american]} to 
                 a(href="/api/translate") /api/translate 
             p Sample Response:
             p {"text":"lorry bank holiday 1.15","translation":"<span class=\"highlight\">truck</span> <span class=\"highlight\">public holiday</span> <span class=\"highlight\">1:15</span>"}
@@ -149,7 +150,7 @@ html(lang="en")
                 | to /api/issues/[project name]
             p {"issue_title": [Title], "issue_text": [Text], "created_by": [Creator], "assigned_to": [Person], "status_text": [Text]}
             p Sample Response
-            p {"assigned_to":"","status_text":"","open":true,"_id":"6284f37c2c779f0ac10abc74","issue_title":"Title","issue_text":"Text","created_by":"Creator","created_on":"2022-05-18T13:24:12.040Z","updated_on":"2022-05-18T13:24:12.040Z"}
+            p {"assigned_to": "", "status_text": "", "open": true, "_id": "6284f37c2c779f0ac10abc74", "issue_title": "Title", "issue_text": "Text", "created_by": "Creator", "created_on": "2022-05-18T13:24:12.040Z", "updated_on": "2022-05-18T13:24:12.040Z"}
             p
                 strong PUT 
                 | to /api/issues/[project name]
