@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Actor {
+  actorId       String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String
+  photo         String?
+  summary       String?
+  ActorsInGames ActorsInGames[]
+}
+
+model ActorsInGames {
+  actorId String @db.Uuid
+  gameId  String @db.Uuid
+  Actor   Actor  @relation(fields: [actorId], references: [actorId])
+  Game    Game   @relation(fields: [gameId], references: [gameId])
+
+  @@id([actorId, gameId])
+}
+
+model Developer {
+  developerId String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String @db.VarChar(255)
+  logo        String
+  location    String
+  summary     String
+  country     String
+  Game        Game[]
+}
+
+model Game {
+  gameId           String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title            String             @db.VarChar(255)
+  cover            String
+  summary          String
+  developerId      String             @db.Uuid
+  publisherId      String             @db.Uuid
+  releaseDate      DateTime
+  genres           String[]
+  images           String[]
+  banner           String
+  trailer          String
+  Developer        Developer          @relation(fields: [developerId], references: [developerId])
+  Publisher        Publisher          @relation(fields: [publisherId], references: [publisherId])
+  ActorsInGames    ActorsInGames[]
+  GamesOnPlatforms GamesOnPlatforms[]
+}
+
+model GamesOnPlatforms {
+  gameId     String   @db.Uuid
+  platformId String   @db.Uuid
+  Game       Game     @relation(fields: [gameId], references: [gameId])
+  Platform   Platform @relation(fields: [platformId], references: [platformId])
+
+  @@id([gameId, platformId])
+}
+
+model Platform {
+  platformId       String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name             String             @db.VarChar(255)
+  logo             String
+  summary          String
+  release          DateTime
+  GamesOnPlatforms GamesOnPlatforms[]
+}
+
+model Publisher {
+  publisherId  String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name         String @db.VarChar(255)
+  logo         String
+  headquarters String
+  summary      String
+  country      String
+  Game         Game[]
+}
