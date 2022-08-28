@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import {Schema} from 'mongoose'
 
-interface IUser {
+export interface IUser {
     username: string,
     log: {
         description: string,

@@ -1,19 +1,21 @@
 import cors from "cors";
 import express from "express";
 import dotenv from 'dotenv';
+import path from "path";
+import mongoose from "mongoose";
 import { whoAmIRouter } from "./routes/whoami";
 import { timestampRouter } from "./routes/timestamp";
 import { shortenerRouter } from "./routes/shortener";
-import path from "path";
 import { metadataRouter } from "./routes/metadata";
 import timezoneHelper from "./utils/timezoneHelper";
 import { quotesRouter, slicedQuotes } from "./routes/quotes";
 import {emailRouter} from './routes/emailer'
 import { exerciseRouter } from "./routes/exercise";
-import mongoose from "mongoose";
 import { converterRouter } from "./routes/converter";
 import { translatorRouter } from "./routes/translator";
 import { issueRouter } from "./routes/issues";
+import { graphqlHTTP } from "express-graphql";
+import schema from "./graphql/query";
 
 dotenv.config()
 const app = express()
@@ -24,6 +26,10 @@ app.use(cors())
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname, '../public')))
+app.use('/graphql', graphqlHTTP({
+    schema,
+    graphiql: true
+}))
 
 // Home Page
 app.get('/', async (req, res) => {

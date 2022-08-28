@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface IUrl {
+export interface IUrl {
     original: string,
     short: string
 }
