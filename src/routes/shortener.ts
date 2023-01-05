@@ -11,7 +11,8 @@ shortenerRouter.post('/', async (req, res) => {
     let doc = await URLModel.findOne({original})
     
     if (doc) {
-        return res.json(doc)
+        const {original, short} = doc
+        return res.json({original, short})
     }
     
     let q: whatwg.URL;
@@ -22,7 +23,7 @@ shortenerRouter.post('/', async (req, res) => {
     }
     catch (e: any) {
         console.log(e)
-        return res.json({error: "Invalid URL"})
+        return res.status(400).json({error: "Invalid URL"})
     }
     const allUrls = await URLModel.find();
     let short = `/api/url/${allUrls.length}`
