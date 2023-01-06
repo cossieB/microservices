@@ -1,5 +1,45 @@
 # Microservices
 
+- [Microservices](#microservices)
+  - [Who Am I?](#who-am-i)
+    - [Who Am I? Request](#who-am-i-request)
+    - [Who Am I? Response](#who-am-i-response)
+  - [Timestamp](#timestamp)
+    - [Timestamp Request](#timestamp-request)
+    - [Timestamp Response](#timestamp-response)
+  - [URL Shortener](#url-shortener)
+    - [URL Shortener Request](#url-shortener-request)
+    - [URL Shortener Response](#url-shortener-response)
+  - [File Metadata](#file-metadata)
+    - [File Metadata Request](#file-metadata-request)
+    - [File Metadata Response](#file-metadata-response)
+  - [Quotes As A Service](#quotes-as-a-service)
+    - [Quotes Request](#quotes-request)
+    - [Quotes Response](#quotes-response)
+  - [Exercise Tracker](#exercise-tracker)
+    - [Create User Request](#create-user-request)
+    - [Create User Response](#create-user-response)
+    - [Create Exercise Request](#create-exercise-request)
+    - [Create Exercise Response](#create-exercise-response)
+    - [Get Exercise Logs Request](#get-exercise-logs-request)
+    - [Exercise Logs Response](#exercise-logs-response)
+  - [Metric / Imperial Converter](#metric--imperial-converter)
+    - [Converter Request](#converter-request)
+    - [Converter Response](#converter-response)
+  - [British / American Translator](#british--american-translator)
+    - [Translator Request](#translator-request)
+    - [Translator Response](#translator-response)
+  - [Issue Tracker](#issue-tracker)
+    - [Add Issue Request](#add-issue-request)
+    - [Add Issue Response](#add-issue-response)
+    - [Update Issue Request](#update-issue-request)
+    - [Update Issue Response](#update-issue-response)
+    - [Delete Issue Request](#delete-issue-request)
+    - [Delete Issue Response](#delete-issue-response)
+    - [Get Issues Request](#get-issues-request)
+    - [Get Issues Response](#get-issues-response)
+
+
 ## Who Am I?
 
 ### Who Am I? Request
@@ -33,6 +73,7 @@ GET /api/timestamp/:date?
 ```js
 200 Ok
 ```
+
 ```js
 {
     "unix": 1,
@@ -52,6 +93,7 @@ GET /api/timestamp/:date?
     "Lagos": "1970/01/01, 01:00:00"
 }
 ```
+
 ```js
 400 Bad Request
 ```
@@ -98,9 +140,11 @@ POST /api/url
     short: "/api/url/0"
 }
 ```
+
 ```js 
 400 Bad Request
 ```
+
 ```js
 {
     error: "Invalid URL"
@@ -116,6 +160,7 @@ POST /api/url
 ```js
 200 Ok
 ```
+
 ```js
 {
     originalname: "App.tsx",
@@ -188,7 +233,7 @@ POST /api/exercisetracker/:_id/logs
 ```js
 {
     _id: "63b74fd0bbc598b8fa544c5d",
-    duration: 120
+    duration: 120,
     date: "2020-01-01",
     description: "Dodge, dip, duck, dive, dodge"    
 }
