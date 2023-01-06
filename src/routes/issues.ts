@@ -33,9 +33,9 @@ issueRouter
                 await issue.save()
             }
             catch (e) {
-                return res.status(200).json({ error: 'required field(s) missing' })
+                return res.status(400).json({ error: 'required field(s) missing' })
             }
-            res.json({ assigned_to, status_text, open: true, _id: issue.id, issue_title, issue_text, created_by, created_on: issue.created_on, updated_on: issue.updated_on })
+            res.status(201).json({ assigned_to, status_text, open: true, _id: issue.id, issue_title, issue_text, created_by, created_on: issue.created_on, updated_on: issue.updated_on })
         }
         catch(e: any) {
             console.log(e)
@@ -45,25 +45,26 @@ issueRouter
         try {
             const { project } = req.params
             const { _id } = req.body
-            if (!_id) return res.status(200).json({ error: 'missing _id' })
+            if (!_id) return res.status(400).json({ error: 'missing _id' })
 
 
 
             if (fields.every(item => !(item in req.body))) {
-                return res.status(200).json({ error: 'no update field(s) sent', '_id': _id })
+                return res.status(400).json({ error: 'no update field(s) sent', '_id': _id })
             }
 
             const doc = await Issues.findById(_id).catch(() => null)
 
             if (!doc) {
-                return res.status(200).json({ error: 'could not update', _id })
+                return res.status(404).json({ error: 'could not update', _id })
             }
 
             for (const prop in req.body) {
                 // @ts-expect-error
-                if (fields.includes(prop.toLowerCase())) doc[prop] = req.body[prop] || doc[prop] || ''
+                if (fields.includes(prop.toLowerCase())) doc[prop] = req.body[prop] || doc[prop] || '';
             }
-            if (req.body.open == false) doc.open = false
+            console.log(req.body)
+            if (req.body.open == false || req.body.open == 'false') doc.open = false; 
             doc.updated_on = new Date()
             await doc.save()
 
@@ -77,7 +78,7 @@ issueRouter
         try {
             let project = req.params.project;
             const { _id } = req.body
-            if (!_id) return res.status(200).json({ error: 'missing _id' })
+            if (!_id) return res.status(400).json({ error: 'missing _id' })
 
             const result = await Issues.findByIdAndDelete(_id).catch(() => null)
 
@@ -85,7 +86,7 @@ issueRouter
                 res.json({ result: "successfully deleted", _id })
             }
             else {
-                res.status(200).json({ error: "could not delete", _id })
+                res.status(404).json({ error: "could not delete", _id })
             }
         }
         catch (e: any) {

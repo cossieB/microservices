@@ -9,7 +9,7 @@ exerciseRouter.post('/', async (req, res) => {
         let user = new Users({ username })
         await user.save()
         let { _id } = user
-        res.json({ username, _id })
+        res.status(201).json({ username, _id })
     } 
     catch (e: any) {
         res.send("Something went wrong")
@@ -31,20 +31,20 @@ exerciseRouter.post('/:id/logs', async (req, res) => {
     let _id = req.params.id
 
     if (!duration || Number.isNaN(Number(duration))) {
-        return res.send('Invalid Duration')
+        return res.status(400).send('Invalid Duration')
     }
     if (!description) {
-        return res.send('Description required')
+        return res.status(400).send('Description required')
     }
     let dateTemp = date ? Date.parse(date) : Date.now()
     
-    if (Number.isNaN(dateTemp)) return res.send('Invalid Date')
+    if (Number.isNaN(dateTemp)) return res.status(400).send('Invalid Date')
 
     let newDate = new Date(dateTemp)
 
     try {
         let user = await Users.findById(_id).catch(() => null);
-        if (!user) return res.send('User not found')
+        if (!user) return res.status(404).send('User not found')
         let obj = {description, duration, date: newDate}
         user.log.push(obj)
         let {username} = user
