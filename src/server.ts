@@ -45,9 +45,6 @@ app.use('/api/exercisetracker', exerciseRouter)
 app.use('/api/converter', converterRouter)
 app.use('/api/translate', translatorRouter)
 app.use('/api/issues', issueRouter);
-app.post('/test', (req, res) => {
-    res.json({})
-})
 
 const PORT = process.env.PORT || 5000;
 
