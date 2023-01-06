@@ -7,8 +7,7 @@ import { whoAmIRouter } from "./routes/whoami";
 import { timestampRouter } from "./routes/timestamp";
 import { shortenerRouter } from "./routes/shortener";
 import { metadataRouter } from "./routes/metadata";
-import timezoneHelper from "./utils/timezoneHelper";
-import { quotesRouter, slicedQuotes } from "./routes/quotes";
+import { quotesRouter } from "./routes/quotes";
 import {emailRouter} from './routes/emailer'
 import { exerciseRouter } from "./routes/exercise";
 import { converterRouter } from "./routes/converter";
@@ -21,7 +20,6 @@ dotenv.config()
 const app = express()
 
 // Express Middleware
-app.set("view engine", "pug")
 app.use(cors())
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
@@ -32,11 +30,8 @@ app.use('/graphql', graphqlHTTP({
 }))
 
 // Home Page
-app.get('/', async (req, res) => {
-    const whoami = JSON.stringify({"ipaddress": req.ip, "language": req.headers["accept-language"], "software": req.headers["user-agent"]})
-    const timestamp = JSON.stringify(timezoneHelper())
-    const quotes = JSON.stringify({quotes: slicedQuotes()})
-    res.render('./index.pug', {whoami, timestamp, quotes})
+app.get('/', (req, res) => {
+    res.sendFile('index.html')
 })
 
 // API Routes

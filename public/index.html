@@ -11,7 +11,7 @@
 </head>
 
 <body class="markdown-body">
-    <h1><a id="user-content-microservices" class="anchor" aria-hidden="true" href="#microservices"><span
+    <h1><a id="microservices" class="anchor" aria-hidden="true" href="#microservices"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Microservices</h1>
     <ul>
         <li>
@@ -93,14 +93,14 @@
             </ul>
         </li>
     </ul>
-    <h2><a id="user-content-who-am-i" class="anchor" aria-hidden="true" href="#who-am-i"><span aria-hidden="true"
+    <h2><a id="who-am-i" class="anchor" aria-hidden="true" href="#who-am-i"><span aria-hidden="true"
                 class="octicon octicon-link"></span></a>Who Am I?</h2>
-    <h3><a id="user-content-who-am-i-request" class="anchor" aria-hidden="true" href="#who-am-i-request"><span
+    <h3><a id="who-am-i-request" class="anchor" aria-hidden="true" href="#who-am-i-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Who Am I? Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">GET</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">whoami</span></pre>
     </div>
-    <h3><a id="user-content-who-am-i-response" class="anchor" aria-hidden="true" href="#who-am-i-response"><span
+    <h3><a id="who-am-i-response" class="anchor" aria-hidden="true" href="#who-am-i-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Who Am I? Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -112,14 +112,14 @@
     <span class="pl-c1">software</span>: <span class="pl-s">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-timestamp" class="anchor" aria-hidden="true" href="#timestamp"><span aria-hidden="true"
+    <h2><a id="timestamp" class="anchor" aria-hidden="true" href="#timestamp"><span aria-hidden="true"
                 class="octicon octicon-link"></span></a>Timestamp</h2>
-    <h3><a id="user-content-timestamp-request" class="anchor" aria-hidden="true" href="#timestamp-request"><span
+    <h3><a id="timestamp-request" class="anchor" aria-hidden="true" href="#timestamp-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Timestamp Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">GET</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">timestamp</span><span class="pl-c1">/</span>:<span class="pl-s1">date</span>?</pre>
     </div>
-    <h3><a id="user-content-timestamp-response" class="anchor" aria-hidden="true" href="#timestamp-response"><span
+    <h3><a id="timestamp-response" class="anchor" aria-hidden="true" href="#timestamp-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Timestamp Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -151,9 +151,9 @@
     <span class="pl-c1">error</span>: <span class="pl-s">"Invalid Date"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-url-shortener" class="anchor" aria-hidden="true" href="#url-shortener"><span
+    <h2><a id="url-shortener" class="anchor" aria-hidden="true" href="#url-shortener"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>URL Shortener</h2>
-    <h3><a id="user-content-url-shortener-request" class="anchor" aria-hidden="true" href="#url-shortener-request"><span
+    <h3><a id="url-shortener-request" class="anchor" aria-hidden="true" href="#url-shortener-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>URL Shortener Request</h3>
     <form class="single-form" action="/api/url" method="POST"><input type="text" name="original" id="original"
             placeholder="Enter URL"><button type="Submit">Submit</button></form>
@@ -163,10 +163,10 @@
     </div>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-kos">{</span>
-    <span class="pl-c1">original</span>: <span class="pl-s">"string"</span>
+    <span class="pl-c1">original</span>: <span class="pl-s">"https://cossie.onrender.com/"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-url-shortener-response" class="anchor" aria-hidden="true"
+    <h3><a id="url-shortener-response" class="anchor" aria-hidden="true"
             href="#url-shortener-response"><span aria-hidden="true" class="octicon octicon-link"></span></a>URL
         Shortener Response</h3>
     <div class="highlight highlight-source-js">
@@ -195,13 +195,13 @@
     <span class="pl-c1">error</span>: <span class="pl-s">"Invalid URL"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-file-metadata" class="anchor" aria-hidden="true" href="#file-metadata"><span
+    <h2><a id="file-metadata" class="anchor" aria-hidden="true" href="#file-metadata"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>File Metadata</h2>
-    <h3><a id="user-content-file-metadata-request" class="anchor" aria-hidden="true" href="#file-metadata-request"><span
+    <h3><a id="file-metadata-request" class="anchor" aria-hidden="true" href="#file-metadata-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>File Metadata Request</h3>
     <form class="single-form" action="/api/metadata" method="POST" enctype="multipart/form-data"><input type="file"
             name="file"><br><button type="submit">Submit</button></form>
-    <h3><a id="user-content-file-metadata-response" class="anchor" aria-hidden="true"
+    <h3><a id="file-metadata-response" class="anchor" aria-hidden="true"
             href="#file-metadata-response"><span aria-hidden="true" class="octicon octicon-link"></span></a>File
         Metadata Response</h3>
     <div class="highlight highlight-source-js">
@@ -215,14 +215,14 @@
     <span class="pl-c1">size</span>: <span class="pl-c1">2426</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-quotes-as-a-service" class="anchor" aria-hidden="true" href="#quotes-as-a-service"><span
+    <h2><a id="quotes-as-a-service" class="anchor" aria-hidden="true" href="#quotes-as-a-service"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Quotes As A Service</h2>
-    <h3><a id="user-content-quotes-request" class="anchor" aria-hidden="true" href="#quotes-request"><span
+    <h3><a id="quotes-request" class="anchor" aria-hidden="true" href="#quotes-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Quotes Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">GET</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">quotes</span><span class="pl-c1">/</span>?<span class="pl-s1">limit</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>number<span class="pl-kos">}</span><span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-quotes-response" class="anchor" aria-hidden="true" href="#quotes-response"><span
+    <h3><a id="quotes-response" class="anchor" aria-hidden="true" href="#quotes-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Quotes Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -240,9 +240,9 @@
     <span class="pl-kos">]</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-exercise-tracker" class="anchor" aria-hidden="true" href="#exercise-tracker"><span
+    <h2><a id="exercise-tracker" class="anchor" aria-hidden="true" href="#exercise-tracker"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Exercise Tracker</h2>
-    <h3><a id="user-content-create-user-request" class="anchor" aria-hidden="true" href="#create-user-request"><span
+    <h3><a id="create-user-request" class="anchor" aria-hidden="true" href="#create-user-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Create User Request</h3>
     <form class="single-form" action="/api/exercisetracker" method="POST">
         Create New User<input type="text" name="username" placeholder="username" id="username"><button
@@ -257,7 +257,7 @@
     <span class="pl-c1">username</span>: <span class="pl-s">"John Doe"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-create-user-response" class="anchor" aria-hidden="true" href="#create-user-response"><span
+    <h3><a id="create-user-response" class="anchor" aria-hidden="true" href="#create-user-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Create User Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">201</span> <span class="pl-v">Created</span></pre>
@@ -268,7 +268,7 @@
     <span class="pl-c1">_id</span>: <span class="pl-s">"63b74fd0bbc598b8fa544c5d"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-create-exercise-request" class="anchor" aria-hidden="true"
+    <h3><a id="create-exercise-request" class="anchor" aria-hidden="true"
             href="#create-exercise-request"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create
         Exercise Request</h3>
     <form class="single-form" id="exerciseForm" method="POST">
@@ -290,7 +290,7 @@
     <span class="pl-c1">description</span>: <span class="pl-s">"Dodge, dip, duck, dive, dodge"</span>    
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-create-exercise-response" class="anchor" aria-hidden="true"
+    <h3><a id="create-exercise-response" class="anchor" aria-hidden="true"
             href="#create-exercise-response"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create
         Exercise Response</h3>
     <div class="highlight highlight-source-js">
@@ -304,13 +304,13 @@
     <span class="pl-c1">description</span>: <span class="pl-s">"Dodge, dip, duck, dive, dodge"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-get-exercise-logs-request" class="anchor" aria-hidden="true"
+    <h3><a id="get-exercise-logs-request" class="anchor" aria-hidden="true"
             href="#get-exercise-logs-request"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get
         Exercise Logs Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">GET</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">exercisetracker</span><span class="pl-c1">/</span>:<span class="pl-s1">_id</span><span class="pl-c1">/</span><span class="pl-s1">logs</span>?<span class="pl-s1">to</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>date<span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-c1">&amp;</span><span class="pl-s1">from</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>date<span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-c1">&amp;</span><span class="pl-s1">limit</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>number<span class="pl-kos">}</span><span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-exercise-logs-response" class="anchor" aria-hidden="true"
+    <h3><a id="exercise-logs-response" class="anchor" aria-hidden="true"
             href="#exercise-logs-response"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exercise
         Logs Response</h3>
     <div class="highlight highlight-source-js">
@@ -330,11 +330,11 @@
     <span class="pl-kos">]</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-metric--imperial-converter" class="anchor" aria-hidden="true"
+    <h2><a id="metric--imperial-converter" class="anchor" aria-hidden="true"
             href="#metric--imperial-converter"><span aria-hidden="true" class="octicon octicon-link"></span></a>Metric /
         Imperial Converter</h2>
 
-    <h3><a id="user-content-converter-request" class="anchor" aria-hidden="true" href="#converter-request"><span
+    <h3><a id="converter-request" class="anchor" aria-hidden="true" href="#converter-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Converter Request</h3>
     <form class="single-form" id="convertForm" action="/api/converter" method="GET"> <input type="text"
             placeholder="1000mi" name="input"><button type="submit">Submit</button></form><br>
@@ -347,7 +347,7 @@
         <pre><span class="pl-c1">GET</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">converter</span>?<span class="pl-s1">input</span><span class="pl-c1">=</span><span class="pl-c1">123</span><span class="pl-s1">mi</span></pre>
     </div>
     <p>Supported units: km, mi, L, gal, kg, lbs</p>
-    <h3><a id="user-content-converter-response" class="anchor" aria-hidden="true" href="#converter-response"><span
+    <h3><a id="converter-response" class="anchor" aria-hidden="true" href="#converter-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Converter Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -361,10 +361,10 @@
     <span class="pl-c1">string</span>: <span class="pl-s">"123 miles converts to 197.94882 kilometers"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-british--american-translator" class="anchor" aria-hidden="true"
+    <h2><a id="british--american-translator" class="anchor" aria-hidden="true"
             href="#british--american-translator"><span aria-hidden="true"
                 class="octicon octicon-link"></span></a>British / American Translator</h2>
-    <h3><a id="user-content-translator-request" class="anchor" aria-hidden="true" href="#translator-request"><span
+    <h3><a id="translator-request" class="anchor" aria-hidden="true" href="#translator-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Translator Request</h3>
     <div id="translateDiv">
         <form class="formColumn" id="translateForm"><textarea id="text" cols="30" rows="10"
@@ -384,7 +384,7 @@
     <span class="pl-c1">locale</span>: <span class="pl-s">"british-to-american"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-translator-response" class="anchor" aria-hidden="true" href="#translator-response"><span
+    <h3><a id="translator-response" class="anchor" aria-hidden="true" href="#translator-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Translator Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -403,9 +403,9 @@
     <span class="pl-c1">error</span>: <span class="pl-s">"Required field(s) missing"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h2><a id="user-content-issue-tracker" class="anchor" aria-hidden="true" href="#issue-tracker"><span
+    <h2><a id="issue-tracker" class="anchor" aria-hidden="true" href="#issue-tracker"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Issue Tracker</h2>
-    <h3><a id="user-content-add-issue-request" class="anchor" aria-hidden="true" href="#add-issue-request"><span
+    <h3><a id="add-issue-request" class="anchor" aria-hidden="true" href="#add-issue-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Add Issue Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">POST</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">issues</span><span class="pl-c1">/</span>:<span class="pl-s1">project</span></pre>
@@ -418,7 +418,7 @@
     <span class="pl-s">"assigned_to"</span>: <span class="pl-s">"admin"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-add-issue-response" class="anchor" aria-hidden="true" href="#add-issue-response"><span
+    <h3><a id="add-issue-response" class="anchor" aria-hidden="true" href="#add-issue-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Add Issue Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">201</span> <span class="pl-v">Created</span></pre>
@@ -444,7 +444,7 @@
     <span class="pl-c1">error</span>: <span class="pl-s">"required field(s) missing"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-update-issue-request" class="anchor" aria-hidden="true" href="#update-issue-request"><span
+    <h3><a id="update-issue-request" class="anchor" aria-hidden="true" href="#update-issue-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Update Issue Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">PUT</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">issues</span><span class="pl-c1">/</span>:<span class="pl-s1">project</span></pre>
@@ -460,7 +460,7 @@
     <span class="pl-s">"open"</span>: <span class="pl-c1">false</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-update-issue-response" class="anchor" aria-hidden="true" href="#update-issue-response"><span
+    <h3><a id="update-issue-response" class="anchor" aria-hidden="true" href="#update-issue-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Update Issue Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -471,7 +471,7 @@
     <span class="pl-s">"_id"</span>: <span class="pl-s">"63b75ef85ca1072dcc0b9b38"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-delete-issue-request" class="anchor" aria-hidden="true" href="#delete-issue-request"><span
+    <h3><a id="delete-issue-request" class="anchor" aria-hidden="true" href="#delete-issue-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Delete Issue Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">DELETE</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">issues</span><span class="pl-c1">/</span>:<span class="pl-s1">project</span></pre>
@@ -481,7 +481,7 @@
     <span class="pl-s">"_id"</span>: <span class="pl-s">"63b75ef85ca1072dcc0b9b38"</span><span class="pl-kos">,</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-delete-issue-response" class="anchor" aria-hidden="true" href="#delete-issue-response"><span
+    <h3><a id="delete-issue-response" class="anchor" aria-hidden="true" href="#delete-issue-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Delete Issue Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>
@@ -492,12 +492,12 @@
     <span class="pl-s">"_id"</span>: <span class="pl-s">"63b75ef85ca1072dcc0b9b38"</span>
 <span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-get-issues-request" class="anchor" aria-hidden="true" href="#get-issues-request"><span
+    <h3><a id="get-issues-request" class="anchor" aria-hidden="true" href="#get-issues-request"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Get Issues Request</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">GET</span> <span class="pl-c1">/</span><span class="pl-s1">api</span><span class="pl-c1">/</span><span class="pl-s1">issues</span><span class="pl-c1">/</span>:<span class="pl-s1">project</span>?<span class="pl-s1">created_by</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>creator<span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-c1">&amp;</span><span class="pl-s1">assigned_to</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>person<span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-c1">&amp;</span><span class="pl-s1">open</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>boolean<span class="pl-kos">}</span><span class="pl-kos">}</span></pre>
     </div>
-    <h3><a id="user-content-get-issues-response" class="anchor" aria-hidden="true" href="#get-issues-response"><span
+    <h3><a id="get-issues-response" class="anchor" aria-hidden="true" href="#get-issues-response"><span
                 aria-hidden="true" class="octicon octicon-link"></span></a>Get Issues Response</h3>
     <div class="highlight highlight-source-js">
         <pre><span class="pl-c1">200</span> <span class="pl-v">Ok</span></pre>

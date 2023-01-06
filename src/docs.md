@@ -115,7 +115,7 @@ POST /api/url
 
 ```js
 {
-    original: "string"
+    original: "https://cossie.onrender.com/"
 }
 ```
 
