@@ -10,10 +10,9 @@ issueRouter
     .get(async (req, res) => {
         try {
             const { project } = req.params
-            console.log(project)
             let query: any = { project }
             for (const prop in req.query) {
-                if (fields.includes(prop.toLowerCase())) query[prop] = req.query[prop]
+                if ([...fields, 'open'].includes(prop.toLowerCase())) query[prop] = req.query[prop]
             }
             const result = await Issues.find(query).select('-project')
             res.json([...result])
