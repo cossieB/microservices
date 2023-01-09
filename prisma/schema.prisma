@@ -42,14 +42,14 @@ model Game {
   developerId      String             @db.Uuid
   publisherId      String             @db.Uuid
   releaseDate      DateTime
-  genres           String[]
   images           String[]
   banner           String
   trailer          String
+  ActorsInGames    ActorsInGames[]
   Developer        Developer          @relation(fields: [developerId], references: [developerId])
   Publisher        Publisher          @relation(fields: [publisherId], references: [publisherId])
-  ActorsInGames    ActorsInGames[]
   GamesOnPlatforms GamesOnPlatforms[]
+  GenresOfGames    GenresOfGames[]
 }
 
 model GamesOnPlatforms {
@@ -78,4 +78,12 @@ model Publisher {
   summary      String
   country      String
   Game         Game[]
+}
+
+model GenresOfGames {
+  genre  String @db.VarChar(100)
+  gameId String @db.Uuid
+  Game   Game   @relation(fields: [gameId], references: [gameId], onDelete: Cascade)
+
+  @@id([genre, gameId])
 }
