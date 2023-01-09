@@ -5,7 +5,6 @@ import path from "path";
 import mongoose from "mongoose";
 import http from 'http';
 import { expressMiddleware } from '@apollo/server/express4';
-import schema from "./graphql/query";
 import * as Routes from "./routes";
 import { ApolloServer } from "@apollo/server";
 import { resolvers } from "./graphql/resolvers";
