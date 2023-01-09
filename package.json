@@ -24,6 +24,7 @@
   },
   "homepage": "https://cossie.onrender.com/",
   "dependencies": {
+    "@apollo/server": "^4.3.0",
     "@prisma/client": "^4.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
