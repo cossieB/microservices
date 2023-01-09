@@ -3,25 +3,26 @@ import express from "express";
 import dotenv from 'dotenv';
 import path from "path";
 import mongoose from "mongoose";
-import { graphqlHTTP } from "express-graphql";
+import http from 'http';
+import { expressMiddleware } from '@apollo/server/express4';
 import schema from "./graphql/query";
 import * as Routes from "./routes";
+import { ApolloServer } from "@apollo/server";
+import { resolvers } from "./graphql/resolvers";
+import { typeDefs } from "./graphql/typeDefs";
 
 dotenv.config()
 const app = express()
+const apollo = new ApolloServer({ typeDefs, resolvers })
 
 // Express Middleware
 app.use(cors())
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname, '../public')))
-app.use('/graphql', graphqlHTTP({
-    schema,
-    graphiql: true
-}))
 
 // Home Page
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     res.sendFile('index.html')
 })
 
@@ -37,16 +38,18 @@ app.use('/api/converter', Routes.converterRouter)
 app.use('/api/translate', Routes.translatorRouter)
 app.use('/api/issues', Routes.issueRouter);
 
+const httpServer = http.createServer(app)
 const PORT = process.env.PORT || 5000;
 
-(async function() {
+(async function () {
     try {
         await mongoose.connect(process.env.MONGO_URI!)
-        app.listen(PORT, () => {
-            console.log("server is listening on port " + PORT)
-        })
+        await apollo.start()
+        app.use('/graphql', expressMiddleware(apollo))
+        await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
+        console.log(`Server is listening on port ${PORT}`)
     }
-    catch(e: any) {
+    catch (e: any) {
         console.log(e)
     }
 })()
