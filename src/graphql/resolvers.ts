@@ -1,4 +1,5 @@
 import { Developer, Game, PrismaClient, Publisher } from "@prisma/client";
+import { dateScalar } from "./typeDefs";
 
 const prisma = new PrismaClient()
 
@@ -7,6 +8,7 @@ type OnlyIdArgs = {
 }
 
 export const resolvers = {
+    Date: dateScalar,
     Query: {
         games: async () => {
             return await prisma.game.findMany()
