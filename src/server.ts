@@ -3,18 +3,9 @@ import express from "express";
 import dotenv from 'dotenv';
 import path from "path";
 import mongoose from "mongoose";
-import { whoAmIRouter } from "./routes/whoami";
-import { timestampRouter } from "./routes/timestamp";
-import { shortenerRouter } from "./routes/shortener";
-import { metadataRouter } from "./routes/metadata";
-import { quotesRouter } from "./routes/quotes";
-import {emailRouter} from './routes/emailer'
-import { exerciseRouter } from "./routes/exercise";
-import { converterRouter } from "./routes/converter";
-import { translatorRouter } from "./routes/translator";
-import { issueRouter } from "./routes/issues";
 import { graphqlHTTP } from "express-graphql";
 import schema from "./graphql/query";
+import * as Routes from "./routes";
 
 dotenv.config()
 const app = express()
@@ -35,16 +26,16 @@ app.get('/', (req, res) => {
 })
 
 // API Routes
-app.use('/api/whoami', whoAmIRouter)
-app.use('/api/timestamp', timestampRouter)
-app.use('/api/url', shortenerRouter)
-app.use('/api/metadata', metadataRouter)
-app.use('/api/quotes', quotesRouter)
-app.use('/api/email', emailRouter)
-app.use('/api/exercisetracker', exerciseRouter)
-app.use('/api/converter', converterRouter)
-app.use('/api/translate', translatorRouter)
-app.use('/api/issues', issueRouter);
+app.use('/api/whoami', Routes.whoAmIRouter)
+app.use('/api/timestamp', Routes.timestampRouter)
+app.use('/api/url', Routes.shortenerRouter)
+app.use('/api/metadata', Routes.metadataRouter)
+app.use('/api/quotes', Routes.quotesRouter)
+app.use('/api/email', Routes.emailRouter)
+app.use('/api/exercisetracker', Routes.exerciseRouter)
+app.use('/api/converter', Routes.converterRouter)
+app.use('/api/translate', Routes.translatorRouter)
+app.use('/api/issues', Routes.issueRouter);
 
 const PORT = process.env.PORT || 5000;
 
